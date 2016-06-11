@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - test@localhost" uuid="91ccfd04-421e-4b19-a08f-7bc96348a450">
+    <database-info product="MySQL" version="5.7.11-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="test"/>
+      <table id="2" parent="1" name="contact"/>
+      <table id="3" parent="1" name="contact_hobby_detail"/>
+      <table id="4" parent="1" name="contact_tel_detail"/>
+      <table id="5" parent="1" name="hobby"/>
+      <table id="6" parent="1" name="person"/>
+      <table id="7" parent="1" name="student"/>
+      <table id="8" parent="1" name="user"/>
+      <column id="9" parent="2" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="10" parent="2" name="first_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(60)</data-type>
+      </column>
+      <column id="11" parent="2" name="last_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="12" parent="2" name="birth_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="13" parent="2" name="version">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <index id="14" parent="2" name="UQ_CONTACT_1">
+        <columns>first_name
+last_name</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="15" parent="2" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <key id="16" parent="2" name="UQ_CONTACT_1">
+        <columns>first_name
+last_name</columns>
+        <underlying-index>UQ_CONTACT_1</underlying-index>
+      </key>
+      <column id="17" parent="3" name="contact_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="18" parent="3" name="hobby_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="19" parent="3" name="FK_CONTACT_HOBBY_DETAIL_2">
+        <columns>hobby_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="20" parent="3" name="PRIMARY">
+        <columns>contact_id
+hobby_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="21" parent="3" name="FK_CONTACT_HOBBY_DETAIL_1">
+        <columns>contact_id</columns>
+        <ref-key>~.contact.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="22" parent="3" name="FK_CONTACT_HOBBY_DETAIL_2">
+        <columns>hobby_id</columns>
+        <ref-key>~.hobby.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="23" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="24" parent="4" name="contact_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="25" parent="4" name="tel_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="26" parent="4" name="tel_number">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="27" parent="4" name="version">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <index id="28" parent="4" name="uq_contact_tel_detail_1">
+        <columns>contact_id
+tel_type</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="29" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="30" parent="4" name="uq_contact_tel_detail_1">
+        <columns>contact_id
+tel_type</columns>
+        <underlying-index>uq_contact_tel_detail_1</underlying-index>
+      </key>
+      <foreign-key id="31" parent="4" name="FK_CONTACT_TEL_DETAIL_1">
+        <columns>contact_id</columns>
+        <ref-key>~.contact.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="32" parent="5" name="hobby_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <key id="33" parent="5" name="PRIMARY">
+        <columns>hobby_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="34" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="35" parent="6" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="36" parent="6" name="country">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <key id="37" parent="6" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="38" parent="7" name="stdentId">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="39" parent="7" name="firstName">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="40" parent="7" name="secondName">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="41" parent="7" name="yearLevel">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="42" parent="7" name="student_stdentId_uindex">
+        <columns>stdentId</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="43" parent="7" name="PRIMARY">
+        <columns>stdentId</columns>
+        <primary>1</primary>
+      </key>
+      <key id="44" parent="7" name="student_stdentId_uindex">
+        <columns>stdentId</columns>
+        <underlying-index>student_stdentId_uindex</underlying-index>
+      </key>
+      <column id="45" parent="8" name="USER_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="46" parent="8" name="FIRST_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="47" parent="8" name="LAST_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <key id="48" parent="8" name="PRIMARY">
+        <columns>USER_ID</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+  <data-source name="MySQL - userdb@localhost" uuid="6fc4a5f1-3b92-49ec-919e-1825436ca24e">
+    <database-info product="MySQL" version="5.7.11-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="userdb"/>
+      <table id="2" parent="1" name="users"/>
+      <column id="3" parent="2" name="userid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="4" parent="2" name="firstname">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="5" parent="2" name="lastname">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="6" parent="2" name="dob">
+        <data-type>date</data-type>
+      </column>
+      <column id="7" parent="2" name="email">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="8" parent="2" name="PRIMARY">
+        <columns>userid</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
